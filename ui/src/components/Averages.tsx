@@ -5,11 +5,12 @@ export default function Averages() {
     const { data: unsortedData } = useSWR('/api/data')
     const tests = unsortedData && unsortedData.tests.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp))
 
-    const lastFiveMinutes = tests.filter(test => dayjs(Date.now()).diff(test.timestamp, 'minute') < 5)
-    const lastHour = tests.filter(test => dayjs(Date.now()).diff(test.timestamp, 'minute') < 60)
-    const lastMonth = tests.filter(test => dayjs(Date.now()).diff(test.timestamp, 'month') < 1)
+    const lastFiveMinutes = tests && tests.filter(test => dayjs(Date.now()).diff(test.timestamp, 'minute') < 5)
+    const lastHour = tests && tests.filter(test => dayjs(Date.now()).diff(test.timestamp, 'minute') < 60)
+    const lastMonth = tests && tests.filter(test => dayjs(Date.now()).diff(test.timestamp, 'month') < 1)
     const average = array => array?.reduce((a, b) => a + b) / array.length
 
+    if (!lastFiveMinutes || !lastHour || !lastMonth) return <></>
     return <>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             <div className="bg-white bg-opacity-10 rounded p-6 text-center">
