@@ -8,7 +8,7 @@ export default function Averages() {
     const lastFiveMinutes = tests.filter(test => dayjs(Date.now()).diff(test.timestamp, 'minute') < 5)
     const lastHour = tests.filter(test => dayjs(Date.now()).diff(test.timestamp, 'minute') < 60)
     const lastMonth = tests.filter(test => dayjs(Date.now()).diff(test.timestamp, 'month') < 1)
-    const average = array => array ? array.reduce((a, b) => a + b) / array.length : 0
+    const average = array => array?.reduce((a, b) => a + b) / array.length
 
     return <>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">

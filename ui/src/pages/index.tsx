@@ -47,8 +47,8 @@ export default function Index() {
                         <span className="text-2xl opacity-50"> ms</span>
                     </p>
                     <p className="text-lg space-x-6">
-                        <span className="text-green-400 opacity-50">low {latest.ping.low} ms</span>
-                        <span className="text-red-400 opacity-50">high {latest.ping.high} ms</span>
+                        <span className="text-green-400 opacity-50">{latest.ping.low} ms</span>
+                        <span className="text-red-400 opacity-50">{latest.ping.high} ms</span>
                     </p>
                 </div>
             </Box>

@@ -2,6 +2,7 @@ import classNames from "classnames"
 import dayjs from "dayjs"
 import { useState } from "react"
 import useSWR from "swr"
+import Modal from "./Modal"
 
 export default function Table() {
     const { data: unsortedData } = useSWR('/api/data')
@@ -10,28 +11,36 @@ export default function Table() {
 
 
     const [open, setOpen] = useState(false)
+    const [modal, setModal] = useState(false)
 
-    return <div className="space-y-4 overflow-auto whitespace-nowrap">
-        <table className="w-full text-left">
-            <tr>
-                <th className="p-2">Upload</th>
-                <th>Download</th>
-                <th>Ping</th>
-                <th>Timestamp</th>
-                <th>More</th>
-            </tr>
-            {tests.slice(0, open ? 200 : 15).map((test, index) => {
-                return <tr className={classNames(index % 2 === 0 && "bg-white bg-opacity-10")}>
-                    <td className="p-2">{(test.download.bandwidth / 125000).toFixed(2)} mbps</td>
-                    <td>{(test.upload.bandwidth / 125000).toFixed(2)} mbps</td>
-                    <td>{test.ping.latency.toFixed(2)} ms</td>
-                    <td>{dayjs(test.timestamp).fromNow()} <span className="opacity-50">({test.timestamp})</span></td>
-                    <td>
-                        <a className="underline hover:no-underline" href={test.result.url} target="_blank">speedtest.net</a>
-                    </td>
+    return <>
+        <Modal visible={modal} onClose={() => setModal(false)}>
+            <div className="space-y-4">
+                <p className="text-3xl">Report</p>
+                <pre className="bg-white bg-opacity-10 rounded p-6 overflow-auto">{JSON.stringify(modal, null, 4)}</pre>
+            </div>
+        </Modal>
+        <div className="space-y-4 overflow-auto whitespace-nowrap">
+            <table className="w-full text-left">
+                <tr>
+                    <th className="p-2">Upload</th>
+                    <th>Download</th>
+                    <th>Ping</th>
+                    <th>Timestamp</th>
+                    <th>More</th>
                 </tr>
-            })}
-        </table>
-        <button onClick={() => setOpen(_ => !_)} className="underline lowercase hover:no-underline text-xl">Show {open ? "Less" : "More"}</button>
-    </div>
+                {tests.slice(0, open ? 200 : 15).map((test, index) => {
+                    return <tr className={classNames(index % 2 === 0 && "bg-white bg-opacity-10")}>
+                        <td className="p-2">{(test.download.bandwidth / 125000).toFixed(2)} mbps</td>
+                        <td>{(test.upload.bandwidth / 125000).toFixed(2)} mbps</td>
+                        <td>{test.ping.latency.toFixed(2)} ms</td>
+                        <td>{dayjs(test.timestamp).fromNow()} <span className="opacity-50">({test.timestamp})</span></td>
+                        <td>
+                            <a className="underline hover:no-underline" href={test.result.url} target="_blank">speedtest.net</a>&nbsp;<button className="underline hover:no-underline" onClick={() => setModal(test)}>full report</button>
+                        </td>
+                    </tr>
+                })}
+            </table>
+            <button onClick={() => setOpen(_ => !_)} className="underline lowercase hover:no-underline text-xl">Show {open ? "Less" : "More"}</button>
+        </div></>
 }

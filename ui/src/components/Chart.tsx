@@ -37,14 +37,14 @@ export default function Chart() {
             {
                 fill: true,
                 label: 'Download Speeds',
-                data: tests ? tests.slice(0, 100).map(test => test.download.bandwidth / 125000) : [],
+                data: tests ? tests.map(test => test.download.bandwidth / 125000) : [],
                 borderColor: 'rgb(53, 162, 235)',
                 backgroundColor: 'rgba(53, 162, 235, 0.5)',
             },
             {
                 fill: true,
                 label: 'Upload Speeds',
-                data: tests ? tests.slice(0, 100).map(test => test.upload.bandwidth / 125000) : [],
+                data: tests ? tests.map(test => test.upload.bandwidth / 125000) : [],
                 borderColor: 'rgb(100, 122, 235)',
                 backgroundColor: 'rgba(100, 122, 235, 0.5)',
             },
