@@ -1,7 +1,7 @@
 const concurrently = require('concurrently');
 const { result } = concurrently(
     [
-        'cd process && npm start',
-        'cd ui && npm start',
+        'cd process && npm i && && npm start',
+        'cd ui && npm i && npm start',
     ],
 );
