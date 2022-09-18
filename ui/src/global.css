@@ -1,0 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+    @apply font-mono lowercase bg-zinc-900 text-zinc-400;
+}
