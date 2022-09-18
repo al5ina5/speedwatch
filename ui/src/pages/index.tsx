@@ -21,7 +21,7 @@ export default function Index() {
             <p className="text-xs lg:text-lg opacity-50 text-right">Last Updated {dayjs(latest.timestamp).fromNow()}</p>
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-            <Box title="Download" titleClassName="text-green-400">
+            <Box title={<>Download <i className="fas fa-arrow-down" /></>} titleClassName="text-green-400">
                 <div className="space-y-2 text-center">
                     <p className="text-5xl font-white">
                         <span>{(latest.download.bandwidth / 125000).toFixed(2)}</span>
@@ -30,7 +30,7 @@ export default function Index() {
                     <p className="text-lg">{latest.download.bandwidth} bytes</p>
                 </div>
             </Box>
-            <Box title="Upload" titleClassName="text-red-400">
+            <Box title={<>Upload <i className="fas fa-arrow-up" /></>} titleClassName="text-red-400">
                 <div className="space-y-2 text-center">
                     <p className="text-5xl font-white">
                         <span>{(latest.upload.bandwidth / 125000).toFixed(2)}</span>
@@ -39,7 +39,7 @@ export default function Index() {
                     <p className="text-lg">{latest.upload.bandwidth} bytes</p>
                 </div>
             </Box>
-            <Box title="Ping" titleClassName="text-purple-400">
+            <Box title={<>Ping <i className="fas fa-gauge" /></>} titleClassName="text-purple-400">
 
                 <div className="space-y-2 text-center">
                     <p className="text-5xl font-white">
