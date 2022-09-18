@@ -12256,6 +12256,61 @@
         "url": "https://www.speedtest.net/result/c/92e4f779-64ec-48f6-8fc4-e3a23cd93016",
         "persisted": true
       }
+    },
+    {
+      "type": "result",
+      "timestamp": "2022-09-18T17:10:31Z",
+      "ping": {
+        "jitter": 22.843,
+        "latency": 42.315,
+        "low": 30.786,
+        "high": 73.616
+      },
+      "download": {
+        "bandwidth": 4815506,
+        "bytes": 65540536,
+        "elapsed": 15008,
+        "latency": {
+          "iqm": 194.56,
+          "low": 36.22,
+          "high": 763.876,
+          "jitter": 61.666
+        }
+      },
+      "upload": {
+        "bandwidth": 7596845,
+        "bytes": 76138187,
+        "elapsed": 10905,
+        "latency": {
+          "iqm": 257.483,
+          "low": 61.611,
+          "high": 1601.401,
+          "jitter": 73.829
+        }
+      },
+      "packetLoss": 0,
+      "isp": "Streamline",
+      "interface": {
+        "internalIp": "192.168.86.199",
+        "name": "en0",
+        "macAddr": "B0:F1:D8:3A:F2:BE",
+        "isVpn": false,
+        "externalIp": "4.7.170.221"
+      },
+      "server": {
+        "id": 14237,
+        "host": "miami.fl.speedtest.frontier.com",
+        "port": 8080,
+        "name": "Frontier",
+        "location": "Miami, FL",
+        "country": "United States",
+        "ip": "172.99.34.17"
+      },
+      "result": {
+        "id": "f36133b7-c45a-42b6-87c5-1c43bf363468",
+        "url": "https://www.speedtest.net/result/c/f36133b7-c45a-42b6-87c5-1c43bf363468",
+        "persisted": true
+      }
     }
   ]
 }
