@@ -24,18 +24,18 @@ export default function Table() {
             <table className="w-full text-left">
                 <tr>
                     <th className="p-2">Upload</th>
-                    <th>Download</th>
-                    <th>Ping</th>
-                    <th>Timestamp</th>
-                    <th>More</th>
+                    <th className="p-2">Download</th>
+                    <th className="p-2">Ping</th>
+                    <th className="p-2">Timestamp</th>
+                    <th className="p-2">More</th>
                 </tr>
                 {tests.slice(0, open ? 200 : 15).map((test, index) => {
                     return <tr className={classNames(index % 2 === 0 && "bg-white bg-opacity-10")}>
                         <td className="p-2">{(test.download.bandwidth / 125000).toFixed(2)} mbps</td>
-                        <td>{(test.upload.bandwidth / 125000).toFixed(2)} mbps</td>
-                        <td>{test.ping.latency.toFixed(2)} ms</td>
-                        <td>{dayjs(test.timestamp).fromNow()} <span className="opacity-50">({test.timestamp})</span></td>
-                        <td>
+                        <td className="p-2">{(test.upload.bandwidth / 125000).toFixed(2)} mbps</td>
+                        <td className="p-2">{test.ping.latency.toFixed(2)} ms</td>
+                        <td className="p-2">{dayjs(test.timestamp).fromNow()} <span className="opacity-50">({test.timestamp})</span></td>
+                        <td className="p-2">
                             <a className="underline hover:no-underline" href={test.result.url} target="_blank">speedtest.net</a>&nbsp;<button className="underline hover:no-underline" onClick={() => setModal(test)}>full report</button>
                         </td>
                     </tr>

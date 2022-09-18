@@ -6,8 +6,10 @@ import dayjs from 'dayjs'
 
 var customParseFormat = require('dayjs/plugin/customParseFormat')
 var relativeTime = require('dayjs/plugin/relativeTime')
+var localizedFormat = require('dayjs/plugin/localizedFormat')
 dayjs.extend(relativeTime)
 dayjs.extend(customParseFormat)
+dayjs.extend(localizedFormat)
 
 
 // import App from 'next/app'

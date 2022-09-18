@@ -19,6 +19,7 @@ export default function Index() {
     return <div className="p-6 lg:p-12 space-y-6">
         <div>
             <p className="text-xs lg:text-lg opacity-50 text-right">Last Updated {dayjs(latest.timestamp).fromNow()}</p>
+            <p className="text-xs lg:text-lg opacity-50 text-right">{dayjs(latest.timestamp).format('lll')}</p>
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
             <Box title={<>Download <i className="fas fa-arrow-down" /></>} titleClassName="text-green-400">
