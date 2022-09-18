@@ -23,8 +23,8 @@ export default function Table() {
         <div className="space-y-4 overflow-auto whitespace-nowrap">
             <table className="w-full text-left">
                 <tr>
-                    <th className="p-2">Upload</th>
                     <th className="p-2">Download</th>
+                    <th className="p-2">Upload</th>
                     <th className="p-2">Ping</th>
                     <th className="p-2">Timestamp</th>
                     <th className="p-2">More</th>
