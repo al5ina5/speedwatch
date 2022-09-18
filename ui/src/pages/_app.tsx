@@ -14,7 +14,7 @@ dayjs.extend(customParseFormat)
 const fetcher = url => axios.get(url).then(res => res.data)
 
 function MyApp({ Component, pageProps }) {
-    return <SWRConfig value={{ fetcher }}>
+    return <SWRConfig value={{ fetcher, refreshInterval: 30 }}>
         <Component {...pageProps} />
     </SWRConfig>
 }
