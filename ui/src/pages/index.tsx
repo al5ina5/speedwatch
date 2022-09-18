@@ -56,7 +56,7 @@ export default function Index() {
 
         </div >
 
-        {/* <Averages /> */}
+        <Averages />
 
         <Chart />
         <Table />
